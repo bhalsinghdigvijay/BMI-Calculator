@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="container">
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="navbar">
+            <ul>
+                <li class="page"><a href="index.html">Home</a></li>
+                <li class="page"><a href="contactus.html">Contact Us</a></li>
+                <li class="page"><a href="info.html">Info</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="bmi">
+        <h1>BMI Calculator</h1>
+        <div class="details">
+            <label for="name">Name</label>
+            <input type="text" placeholder="Enter your Name" id="name">
+            <label for="age">Age</label>
+            <input type="number" placeholder="Enter your Age" id="age">
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="#">Select your Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <label for="weight">Weight</label>
+            <input type="number" name="weight" placeholder="Enter your weight in kg" id="weight">
+            <label for="height">Height</label>
+            <input type="number" name="height" placeholder="Enter your height in cm" id="height">
+            <button class="btn" onclick="myfun()">Calculate BMI</button>  
+        </div>
+        <div id="a9">
+            <span id="a5"></span>
+            <span id="a4"></span>
+            <span id="a8"></span>
+        </div>
+    </section>
+    
+    
+    <script>
+        function myfun(){
+            var a = document.getElementById("height").value;
+            var b = document.getElementById("weight").value;
+            var c = (b*10000)/(a*a);
+            document.getElementById("a5").textContent = "Your BMI is:"
+            document.getElementById("a4").innerHTML = c;
+            if(c<18.5){
+                document.getElementById("a8").textContent = ". You are underweight."
+                document.getElementById("a9").style.backgroundColor = "blue"
+                
+            }
+            if(c>=18.5 && c<25){
+                document.getElementById("a8").textContent = ". You have a healthy weight."
+                document.getElementById("a9").style.backgroundColor = "green"
+
+            }
+            if(c>=25 && c<30){
+                document.getElementById("a8").textContent = ". You are overerweight."
+                document.getElementById("a9").style.backgroundColor = "orange"
+            }
+            if(c>=30 && c<35){
+                document.getElementById("a8").textContent = ". You are obese."
+                document.getElementById("a9").style.backgroundColor = "red"
+            }
+            if(c>=35){
+                document.getElementById("a8").textContent = ". You are extremely obese."
+                document.getElementById("a9").style.backgroundColor = "violet"
+
+            }
+        }   
+    </script>
+</body>
+</html>
